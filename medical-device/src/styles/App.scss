@@ -1,0 +1,15 @@
+.content-container {
+  background: url("../assets/index_bg.png") no-repeat center;
+  //min-height: 100vh;
+  //height: 100%;
+  display: flex;
+  .left-page {
+    flex: 0 0 400px
+  }
+  .main-page {
+    flex: 1 0 500px
+  }
+  .right-page {
+    flex: 0 0 400px
+  }
+}

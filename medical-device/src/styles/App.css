@@ -1,0 +1,15 @@
+.content-container {
+  background: url("../assets/index_bg.png") no-repeat center;
+  display: flex;
+}
+.content-container .left-page {
+  flex: 0 0 400px;
+}
+.content-container .main-page {
+  flex: 1 0 500px;
+}
+.content-container .right-page {
+  flex: 0 0 400px;
+}
+
+/*# sourceMappingURL=App.css.map */
