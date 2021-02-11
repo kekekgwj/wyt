@@ -1,0 +1,11 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map-chart {
+  height: 800px !important;
+  width: 800px;
+}
+
+/*# sourceMappingURL=MainPage.css.map */
