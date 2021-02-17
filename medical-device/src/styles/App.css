@@ -1,16 +1,27 @@
 .content-container {
   max-width: 2000px;
   background: url("../assets/index_bg.png") no-repeat center;
+  padding-top: 130px;
+}
+.content-container .header {
+  width: 100%;
+  max-width: 2000px;
+  height: 200px;
+  position: absolute;
+  top: 20px;
+  background: url("../assets/header_bg.png") no-repeat;
+}
+.content-container .content {
   display: flex;
 }
-.content-container .left-page {
+.content-container .content .left-page {
   flex: 0 0 400px;
 }
-.content-container .main-page {
+.content-container .content .main-page {
   flex: 1 1 500px;
   max-width: 1000px;
 }
-.content-container .right-page {
+.content-container .content .right-page {
   flex: 0 0 400px;
 }
 
