@@ -1,15 +1,18 @@
 .content-container {
-  max-width: 2000px;
+  max-width: 2500px;
+  min-width: 1600px;
+  height: 1000px;
   background: url("../assets/index_bg.png") no-repeat center;
   padding-top: 130px;
+  width: 100%;
 }
 .content-container .header {
   width: 100%;
-  max-width: 2000px;
+  min-width: 1600px;
   height: 200px;
   position: absolute;
-  top: 20px;
-  background: url("../assets/header_bg.png") no-repeat;
+  top: 0px;
+  background: url("../assets/header_bg.png") no-repeat center;
 }
 .content-container .content {
   display: flex;
@@ -18,7 +21,7 @@
   flex: 0 0 400px;
 }
 .content-container .content .main-page {
-  flex: 1 1 500px;
+  flex: 1 1 600px;
   max-width: 1000px;
 }
 .content-container .content .right-page {

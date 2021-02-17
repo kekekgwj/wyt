@@ -1,47 +1,48 @@
 .left-container {
   width:400px;
-  .sample-container {
-    background: url("../assets/popUP_bg.png") no-repeat center ;
-    background-size: 400px 100px;
-    width: 400px;
-    height: 100px;
-    padding-top: 5px;
+  span {
+    font-size: 24px;
+    margin-left: 24px;
+    line-height: 50px;
   }
-  .sample-title {
-    background: url("../assets/title_bg01.png") no-repeat center;
-    text-align: center;
-    color: deepskyblue;
+  .left-title {
+    background: url("../assets/green_bar.png");
+    padding-top: 12px;
+    width: 300px;
+    height: 50px;
+    color: white;
+    text-align: left;
+    margin-left: 30px;
+  }
+  .sample-container {
+    padding-top: 30px;
+    background: url("../assets/wireframe_left_1.png") no-repeat center ;
+    background-size: 400px 150px;
+    width: 400px;
+    height: 150px;
   }
   .sample-summary {
     color: white;
     text-align: center;
     font-size: 24px;
-    padding-bottom: 20px;
   }
   .organ-container {
-    height: 500px;
-    background: url("../assets/organ_bg.png") no-repeat left;
-    background-size: 400px 600px;
+    margin-top: -50px;
+    padding-top: 40px;
+    height: 550px;
+    background: url("../assets/wireframe_left_2.png") no-repeat left;
+    background-size: 400px 550px;
   }
   .organ-wrapper {
     height: 100%;
-    padding: 50px;
+    padding: 20px 50px 50px 50px;
   }
-  .table-header {
-    background-color: lightgrey;
-    color:white;
-    p {
-      margin: 0 0 0 16px;
-      font-size: 16px;
-      line-height: 24px;
-    }
-  }
-  .table {
-    width: 100%;
+  .table-container {
+    margin-top: -50px;
+    padding-top: 20px;
+    background: url("../assets/wireframe_left_3.png") no-repeat left;
+    margin-right: 15px;
     height: 300px;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    background-color: #6495ED;
+    background-size: 400px 300px;
   }
 }

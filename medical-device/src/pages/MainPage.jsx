@@ -1,16 +1,17 @@
 import React from "react";
 import ChinaMap from "../component/map";
-import ReactChinaMap from 'react-echarts-chinamap'
+import ReactChinaMap from 'react-echarts-chinamap';
+import "../styles/MainPage.css";
 const mainPage = () => {
     const mapStyle = {
-        width: '100%',
-        top: '500px',
+        top: '200px',
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+
 
     }
     const option = {
-        backgroundColor: "#336699",
+
         geo: {
             zoom: 1,
             // selectedMode:true,  //多选地图区域
@@ -66,15 +67,22 @@ const mainPage = () => {
     };
     return (
         <div className="main-container">
-            <p>main page</p>
-            <ChinaMap extraOption={option} onChange = {((data) => {console.log(data)})}/>
+            <div className="main-wrapper">
+                <div className="map-wrapper">
+                    <ChinaMap
+                        onChange = {((data) => {console.log(data)})}
+                    />
+                </div>
+                <div className="title"><span>中国地图</span></div>
+            </div>
 
-                <ReactChinaMap
-                    wrapperClassName="xxx"
-                    echartsClassName="map-chart"
-                    onChange = {((data) => {console.log(data)})}
-                    extraOption={option}
-                    style={mapStyle}/>
+
+                {/*<ReactChinaMap*/}
+                {/*    wrapperClassName="xxx"*/}
+                {/*    echartsClassName="map-chart"*/}
+                {/*    onChange = {((data) => {console.log(data)})}*/}
+                {/*    extraOption={option}*/}
+                {/*    style={mapStyle}/>*/}
         </div>
     );
 }

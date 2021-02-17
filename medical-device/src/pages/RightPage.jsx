@@ -101,9 +101,7 @@ const rightPage = () => {
                 </div>
             </div>
             <div className="report-list-container">
-                <div className="report-title">
-                    <p>用户报告列表</p>
-                </div>
+                <div className="left-title"><span>用户报告列表</span></div>
                 <List
                     itemLayout="horizontal"
                     dataSource={data}
@@ -118,9 +116,7 @@ const rightPage = () => {
                 />,
             </div>
             <div className="device-list-container">
-                <div className="device-list-title">
-                    <p>设备列表</p>
-                </div>
+                <div className="left-title"><span>设备情况列表</span></div>
                 <div className="table-wrapper">
                     <Table
                         columns={columns}

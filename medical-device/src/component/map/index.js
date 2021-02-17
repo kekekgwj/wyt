@@ -50,7 +50,7 @@ export default class ChinaMap extends Component {
                 type: 'map',
                 map: clickMapId,
                 layoutCenter: ['50%', '50%'],
-                zoom: 1.2,
+                zoom: 1.3,
                 data: data.features.map((item) => {
                     return {
                         selected: item.properties.name === this.props.defaultSelectedAreaName,
@@ -157,6 +157,7 @@ export default class ChinaMap extends Component {
         const goback = {
             display: 'inline-block',
             marginBottom: '0',
+            marginLeft:'20px',
             textAlign: 'center',
             touchAction: 'manipulation',
             cursor: 'pointer',

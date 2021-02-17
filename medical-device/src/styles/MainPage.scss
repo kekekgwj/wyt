@@ -1,10 +1,29 @@
 .main-container {
   width: 100%;
   height: 100%;
-
+  .main-wrapper {
+    width: 100%;
+    height: 100%;
+    background: url("../assets/wireframe_middle.png") no-repeat center;
+  }
+  .map-wrapper {
+    position: absolute;
+    width: 800px;
+    top: 400px;
+  }
+  span {
+    font-size: 36px;
+    line-height: 50px;
+  }
+  .title {
+    background: url("../assets/title_center.png") no-repeat center;
+    position: absolute;
+    width: 800px;
+    top: 1000px;
+    height: 50px;
+    color: white;
+    text-align: center;
+  }
 }
-.map-chart {
-  height: 800px !important;
-  width: 800px;
 
-}
+
