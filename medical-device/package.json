@@ -14,7 +14,12 @@
     "react-echarts-chinamap": "^1.0.3",
     "react-scripts": "4.0.1",
     "scss": "^0.2.4",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "prop-types": "^15.5.4",
+    "classnames": "^2.2.6",
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.15-beta.0",
+    "less": "^3.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "less": "^3.13.1",
+    "less-loader": "^8.0.0",
+    "sass-resources-loader": "^2.1.1"
   }
 }

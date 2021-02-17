@@ -1,4 +1,5 @@
 import React from "react";
+import ChinaMap from "../component/map";
 import ReactChinaMap from 'react-echarts-chinamap'
 const mainPage = () => {
     const mapStyle = {
@@ -66,6 +67,7 @@ const mainPage = () => {
     return (
         <div className="main-container">
             <p>main page</p>
+            <ChinaMap extraOption={option} onChange = {((data) => {console.log(data)})}/>
 
                 <ReactChinaMap
                     wrapperClassName="xxx"

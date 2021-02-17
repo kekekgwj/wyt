@@ -1,4 +1,5 @@
 .content-container {
+  max-width: 2000px;
   background: url("../assets/index_bg.png") no-repeat center;
   //min-height: 100vh;
   //height: 100%;
@@ -7,7 +8,8 @@
     flex: 0 0 400px
   }
   .main-page {
-    flex: 1 0 500px
+    flex: 1 1 500px;
+    max-width: 1000px;
   }
   .right-page {
     flex: 0 0 400px
