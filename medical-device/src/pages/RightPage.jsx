@@ -1,36 +1,20 @@
 import React from "react";
-import district from '../assets/district.png';
-import global from '../assets/global.png';
-import online from '../assets/online.png';
+
 import '../styles/rightPage.css';
 import {List, Table} from 'antd';
 
-const data = [
-    {
-        title: 'Ant Design Title 1',
-    },
-    {
-        title: 'Ant Design Title 2',
-    },
-    {
-        title: 'Ant Design Title 3',
-    },
-    {
-        title: 'Ant Design Title 4',
-    },
-];
-const dataSource = [
+const reportListData = [
     {
         key: '1',
-        city: '杭州',
-        person: 32,
+        location: '杭州',
+        order: 32,
         date: '2021-2-3',
     },
     {
         key: '2',
-        city: '福建',
-        person: 123,
-        date: '2021-1-2',
+        location: 'hangzhou',
+        order: 11,
+        date: '2021-2-3',
     },
 ];
 const columns = [
@@ -60,71 +44,43 @@ const rightPage = () => {
     return (
         <div className="right-container">
             <div className="device-summary-container">
-                <div className="global-device device-display-wrapper">
-                    <div className="title global-device-title">
-                        <div className="icon-wrapper">
-                            <img src={global}/>
-                        </div>
-                        <p className="device-title">
-                            总设备数
-                        </p>
-                    </div>
-                    <div className="display-number">
-                        1
-                    </div>
+                <div className="device-global-wrapper device-display-wrapper">
+                    <p className="display-title">全国设备总数</p>
+                    <p className="display-numb">2</p>
                 </div>
-                <div className="area-device device-display-wrapper">
-                    <div className="title area-device-title">
-                        <div className="icon-wrapper">
-                            <img src={district}/>
-                        </div>
-                        <p className="device-title">
-                            地图设备数
-                        </p>
-                    </div>
-                    <div className="display-number">
-                        1
-                    </div>
+                <div className="device-district-wrapper device-display-wrapper">
+                    <p className="display-title">区域设备数</p>
+                    <p className="display-numb">2</p>
                 </div>
-                <div className="online-device device-display-wrapper">
-                    <div className="title online-device-title">
-                        <div className="icon-wrapper">
-                            <img src={online}/>
-                        </div>
-                        <p className="device-title">
-                            在线设备数
-                        </p>
-                    </div>
-                    <div className="display-number">
-                        1
-                    </div>
+                <div className="device-online-wrapper device-display-wrapper">
+                    <p className="display-title">在线设备数</p>
+                    <p className="display-numb">2</p>
                 </div>
             </div>
             <div className="report-list-container">
                 <div className="left-title"><span>用户报告列表</span></div>
-                <List
-                    itemLayout="horizontal"
-                    dataSource={data}
-                    renderItem={item => (
-                        <List.Item>
-                            <List.Item.Meta
-                                title={<a href="https://ant.design">{item.title}</a>}
-                                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-                            />
-                        </List.Item>
-                    )}
-                />,
+                <ul>
+                {reportListData.map((item, index) => {
+                    return (<li className="report-item" key={index}>
+                        <div className="li-wrapper">
+                            <span className="report-item-order">{item.order}</span>
+                            <span className="report-item-location">{item.location}</span>
+                            <span className="report-item-date">{item.date}</span>
+                        </div>
+                    </li>)
+                })}
+                </ul>
             </div>
             <div className="device-list-container">
                 <div className="left-title"><span>设备情况列表</span></div>
                 <div className="table-wrapper">
-                    <Table
-                        columns={columns}
-                        dataSource={dataSource}
-                        className="table"
-                        bordered={true}
-                        pagination={false}
-                    />
+                    {/*<Table*/}
+                    {/*    columns={columns}*/}
+                    {/*    dataSource={dataSource}*/}
+                    {/*    className="table"*/}
+                    {/*    bordered={true}*/}
+                    {/*    pagination={false}*/}
+                    {/*/>*/}
                 </div>
             </div>
         </div>

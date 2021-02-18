@@ -17,148 +17,142 @@ import { Chart, Line, Point, Tooltip, Legend } from 'bizcharts';
 // 数据源
 const data = [
     {
-        month: "Jan",
-        city: "Tokyo",
-        temperature: 7
+        month: "1",
+        organ: "大脑",
+        score: 5
     },
     {
-        month: "Jan",
-        city: "London",
-        temperature: 3.9
+        month: "1",
+        organ: "心脏",
+        score: 100
     },
     {
-        month: "Feb",
-        city: "Tokyo",
-        temperature: 6.9
+        month: "1",
+        organ: "脾",
+        score: 50
     },
     {
-        month: "Feb",
-        city: "London",
-        temperature: 4.2
+        month: "1",
+        organ: "肝",
+        score: 50
     },
     {
-        month: "Mar",
-        city: "Tokyo",
-        temperature: 9.5
+        month: "1",
+        organ: "胆",
+        score: 50
     },
     {
-        month: "Mar",
-        city: "London",
-        temperature: 5.7
+        month: "1",
+        organ: "胸乳",
+        score: 50
     },
     {
-        month: "Apr",
-        city: "Tokyo",
-        temperature: 14.5
+        month: "1",
+        organ: "肾",
+        score: 50
     },
     {
-        month: "Apr",
-        city: "London",
-        temperature: 8.5
+        month: "1",
+        organ: "肺",
+        score: 50
     },
     {
-        month: "May",
-        city: "Tokyo",
-        temperature: 18.4
+        month: "1",
+        organ: "胃",
+        score: 50
     },
     {
-        month: "May",
-        city: "London",
-        temperature: 11.9
+        month: "1",
+        organ: "大肠",
+        score: 50
     },
     {
-        month: "Jun",
-        city: "Tokyo",
-        temperature: 21.5
+        month: "1",
+        organ: "小肠",
+        score: 50
     },
     {
-        month: "Jun",
-        city: "London",
-        temperature: 15.2
+        month: "1",
+        organ: "生殖",
+        score: 50
     },
     {
-        month: "Jul",
-        city: "Tokyo",
-        temperature: 25.2
+        month: "2",
+        organ: "大脑",
+        score: 10
     },
     {
-        month: "Jul",
-        city: "London",
-        temperature: 17
+        month: "3",
+        organ: "大脑",
+        score: 12
     },
     {
-        month: "Aug",
-        city: "Tokyo",
-        temperature: 26.5
+        month: "4",
+        organ: "大脑",
+        score: 44
     },
     {
-        month: "Aug",
-        city: "London",
-        temperature: 16.6
+        month: "5",
+        organ: "大脑",
+        score: 66
     },
     {
-        month: "Sep",
-        city: "Tokyo",
-        temperature: 23.3
+        month: "6",
+        organ: "大脑",
+        score: 22
     },
     {
-        month: "Sep",
-        city: "London",
-        temperature: 14.2
+        month: "7",
+        organ: "大脑",
+        score: 88
     },
     {
-        month: "Oct",
-        city: "Tokyo",
-        temperature: 18.3
+        month: "8",
+        organ: "大脑",
+        score: 99
     },
     {
-        month: "Oct",
-        city: "London",
-        temperature: 10.3
+        month: "9",
+        organ: "大脑",
+        score: 30
     },
     {
-        month: "Nov",
-        city: "Tokyo",
-        temperature: 13.9
+        month: "10",
+        organ: "大脑",
+        score: 22
     },
     {
-        month: "Nov",
-        city: "London",
-        temperature: 6.6
+        month: "11",
+        organ: "大脑",
+        score: 34
     },
     {
-        month: "Dec",
-        city: "Tokyo",
-        temperature: 9.6
-    },
-    {
-        month: "Dec",
-        city: "London",
-        temperature: 4.8
+        month: "12",
+        organ: "大脑",
+        score: 80
     }
 ];
 
 const scale = {
-    temperature: { min: 0 },
+    score: { min: 0 },
     city: {
         formatter: v => {
             return {
-                London: '伦敦',
-                Tokyo: '东京'
+                brain: '大脑',
             }[v]
         }
     }
 }
 
 function Demo() {
-    return <Chart scale={scale} padding={[30, 20, 60, 40]} autoFit height={320} data={data} interactions={['element-active']}>
-        <Point position="month*temperature" color="city" shape='circle' />
-        <Line shape="smooth" position="month*temperature" color="city" label="temperature" />
+    return <Chart scale={scale} padding={[30, 20, 60, 40]} autoFit height={200} data={data} interactions={['element-active']}>
+        <Point position="month*score" color="organ" shape='circle' />
+        <Line shape="smooth" position="month*score" color="organ" label="score" />
         <Tooltip shared showCrosshairs />
-        <Legend background={{
-            padding:[5,100,5,36],
+        <Legend position="bottom-left" background={{
+            padding:[5,240,5,36],
             style: {
-                fill: '#eaeaea',
+                fill: '#ffffff',
                 stroke: '#fff'
             }
         }} />
@@ -176,18 +170,18 @@ const leftPage = () => {
             <div className="organ-container">
                 <div className="organ-title left-title"><span>脏腑选择区</span></div>
                 <div className="organ-wrapper">
-                    <img src={organ1} alt="organ" className="organ-icon"/>
-                    <img src={organ2} alt="organ" className="organ-icon"/>
-                    <img src={organ3} alt="organ" className="organ-icon"/>
-                    <img src={organ4} alt="organ" className="organ-icon"/>
-                    <img src={organ5} alt="organ" className="organ-icon"/>
-                    <img src={organ6} alt="organ" className="organ-icon"/>
-                    <img src={organ7} alt="organ" className="organ-icon"/>
-                    <img src={organ9} alt="organ" className="organ-icon"/>
-                    <img src={organ8} alt="organ" className="organ-icon"/>
-                    <img src={organ10} alt="organ" className="organ-icon"/>
-                    <img src={organ11} alt="organ" className="organ-icon"/>
-                    <img src={organ12} alt="organ" className="organ-icon"/>
+                    <img src={organ1} alt="organ" className="organ-icon" id={"heart"}/>
+                    <img src={organ2} alt="organ" className="organ-icon" id={"brain"}/>
+                    <img src={organ3} alt="organ" className="organ-icon" id={"temper"}/>
+                    <img src={organ4} alt="organ" className="organ-icon" id={"liver"}/>
+                    <img src={organ5} alt="organ" className="organ-icon" id={"bravery"}/>
+                    <img src={organ6} alt="organ" className="organ-icon" id={"breast"}/>
+                    <img src={organ7} alt="organ" className="organ-icon" id={"kidney"}/>
+                    <img src={organ9} alt="organ" className="organ-icon" id={"spleen"}/>
+                    <img src={organ8} alt="organ" className="organ-icon" id={"stomach"}/>
+                    <img src={organ10} alt="organ" className="organ-icon" id={"largeIntestine"}/>
+                    <img src={organ11} alt="organ" className="organ-icon" id={"smallIntestine"}/>
+                    <img src={organ12} alt="organ" className="organ-icon" id={"reproduction"}/>
                 </div>
             </div>
             <div className="table-container">

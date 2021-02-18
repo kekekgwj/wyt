@@ -42,9 +42,12 @@
   margin-top: -50px;
   padding-top: 20px;
   background: url("../assets/wireframe_left_3.png") no-repeat left;
-  margin-right: 15px;
   height: 300px;
   background-size: 400px 300px;
+}
+.left-container .table-wrapper {
+  width: 350px;
+  padding-left: 30px;
 }
 
 /*# sourceMappingURL=LeftPage.css.map */
