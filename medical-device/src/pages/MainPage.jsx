@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import ChinaMap from "../component/map";
-import ReactChinaMap from 'react-echarts-chinamap';
 import "../styles/MainPage.css";
-const mainPage = () => {
+const mainPage = (props) => {
+
+    const { location, setLocation } = props;
     const rankData = [
         {
             key: '1',
@@ -15,12 +16,18 @@ const mainPage = () => {
             sample: 2,
         },
     ];
+    const handleLocation = (location) => {
+        if (!location || location.length === 0) {
+            return '中国';
+        }
+        return location[location.length - 1];
+    };
     return (
         <div className="main-container">
             <div className="main-wrapper">
                 <div className="map-wrapper">
                     <ChinaMap
-                        onChange = {((data) => {console.log(data)})}
+                        onChange = {((data) => {setLocation(handleLocation(data))})}
                     />
                 </div>
                 <div className="rank-list">
@@ -42,8 +49,17 @@ const mainPage = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="title"><span>中国地图</span></div>
-            </div>
+                <div className="title">
+                    <span>中国地图</span>
+                </div>
+                <div className="location-container">
+                    <div className="location-title">当前位置</div>
+                    <div className="location-current">
+                        {location}
+                    </div>
+
+                </div>
+        </div>
         </div>
     );
 }
