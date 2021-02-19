@@ -1,11 +1,6 @@
 .right-container {
   width: 400px;
 }
-.right-container span {
-  font-size: 24px;
-  margin-left: 24px;
-  line-height: 50px;
-}
 .right-container .left-title {
   background: url("../assets/green_bar.png");
   padding-top: 12px;
@@ -14,6 +9,11 @@
   color: white;
   text-align: left;
   margin-left: 30px;
+}
+.right-container .left-title span {
+  font-size: 24px;
+  margin-left: 24px;
+  line-height: 50px;
 }
 .right-container .device-summary-container {
   position: relative;
@@ -110,6 +110,21 @@
 }
 .right-container .device-list-title {
   text-align: center;
+}
+.right-container .device-list-container {
+  font-size: 12px;
+  color: white;
+  position: relative;
+}
+.right-container .device-list-container ul {
+  position: absolute;
+  top: 100px;
+}
+.right-container .table-title {
+  width: 280px;
+  height: 25px;
+  position: absolute;
+  left: 50px;
 }
 
 /*# sourceMappingURL=rightPage.css.map */

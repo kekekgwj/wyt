@@ -1,17 +1,16 @@
 .content-container {
-  max-width: 2500px;
-  min-width: 1600px;
+  width: 1700px;
   height: 1000px;
   background: url("../assets/index_bg.png") no-repeat center;
   padding-top: 130px;
-  width: 100%;
+
   .header {
-    width: 100%;
-    min-width: 1600px;
+    width: 1700px;
     height: 200px;
     position: absolute;
     top: 0px;
     background: url("../assets/header_bg.png") no-repeat center;
+    background-size: 1700px;
   }
   .content {
     display: flex;
@@ -19,7 +18,7 @@
       flex: 0 0 400px
     }
     .main-page {
-      flex: 1 1 600px;
+      flex: 0 0 900px;
       max-width: 1000px;
     }
     .right-page {

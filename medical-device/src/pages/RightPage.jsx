@@ -17,6 +17,32 @@ const reportListData = [
         date: '2021-2-3',
     },
 ];
+const tableData = [
+    {
+        key: '1',
+        order: '1',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    },
+    {
+        key: '2',
+        order: '1',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    },
+    {
+        key: '3',
+        order: '1',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    },
+];
 const columns = [
     {
         title: '城市',
@@ -74,13 +100,26 @@ const rightPage = () => {
             <div className="device-list-container">
                 <div className="left-title"><span>设备情况列表</span></div>
                 <div className="table-wrapper">
-                    {/*<Table*/}
-                    {/*    columns={columns}*/}
-                    {/*    dataSource={dataSource}*/}
-                    {/*    className="table"*/}
-                    {/*    bordered={true}*/}
-                    {/*    pagination={false}*/}
-                    {/*/>*/}
+                    <div className="table-title">
+                        <span className="table-title-order">设备编号</span>
+                        <span className="table-title-location">地点</span>
+                        <span className="table-title-today">当日检测数</span>
+                        <span className="table-title-sevendays">近七日检测数</span>
+                        <span className="table-title-recent">最近检测时间</span>
+                    </div>
+                    <ul>
+                        {tableData.map((item, index) => {
+                            return (<li className="table-item" key={index}>
+                                <div className="table-li-wrapper">
+                                    <span className="table-item-order">{item.order}</span>
+                                    <span className="table-item-location">{item.location}</span>
+                                    <span className="table-item-today">{item.today}</span>
+                                    <span className="table-item-sevendays">{item.sevenDays}</span>
+                                    <span className="table-item-recent">{item.recent}</span>
+                                </div>
+                            </li>)
+                        })}
+                    </ul>
                 </div>
             </div>
         </div>
