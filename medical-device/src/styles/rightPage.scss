@@ -120,11 +120,68 @@
     }
   }
   .table-title {
-    width: 280px;
+    width: 335px;
     height: 25px;
     position: absolute;
-    left: 50px;
-  }
+    left: 40px;
+    top: 90px;
+    background: url("../assets/device_table_title.png")no-repeat left;
+    background-size: 335px 25px;
+    display: flex;
+    align-items: center;
+    font-size:  12px;
+    color: #00ccff;
 
+    div {
+      text-align: center;
+    }
+  }
+  .table-title-order {
+    width: 70px;
+  }
+  .table-title-location {
+    width: 50px;
+  }
+  .table-title-today {
+    width: 70px;
+  }
+  .table-title-sevendays {
+    width: 80px;
+  }
+  .table-title-recent {
+    width: 80px;
+  }
+  .table-item {
+    width: 335px;
+    height: 25px;
+    background: url("../assets/device_table_item_bg_light.png");
+    background-size: 335px 25px;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    div {
+      text-align: center;
+    }
+  }
+  .table-ul {
+    list-style: none;
+    position: absolute;
+    top: 90px;
+  }
+  .table-item-order {
+    width: 70px;
+  }
+  .table-item-location {
+    width: 50px;
+  }
+  .table-item-today {
+    width: 70px;
+  }
+  .table-item-sevendays {
+    width: 80px;
+  }
+  .table-item-recent {
+    width: 80px;
+  }
 
 }

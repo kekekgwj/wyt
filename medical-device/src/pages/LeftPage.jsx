@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/LeftPage.css';
 import organ1 from '../assets/organ1.png';
 import organ2 from '../assets/organ2.png';
@@ -13,6 +13,8 @@ import organ10 from '../assets/organ10.png';
 import organ11 from '../assets/organ11.png';
 import organ12 from '../assets/organ12.png';
 import { Chart, Line, Point, Tooltip, Legend } from 'bizcharts';
+import  { getSampleNumb } from  '../backend/api';
+import { pinyinConverter } from '../component/pingyinConverter';
 
 // 数据源
 const data = [
@@ -160,12 +162,24 @@ function Demo() {
 }
 
 
-const leftPage = () => {
+const leftPage = (props) => {
+    const { location } = props;
+    const [ sample, setSample ] = useState(0);
+    const loadSample = (location) => {
+        getSampleNumb(pinyinConverter(location))
+            .then(res => {
+                setSample(res.total);
+            })
+    };
+
+    useEffect(() => {
+        loadSample(location);
+    }, [location]);
     return (
         <div className="left-container">
             <div className="sample-container">
                 <div className="sample-title left-title"><span>当前样本总数</span></div>
-                <div className="sample-summary"><p>130</p></div>
+                <div className="sample-summary"><p>{sample}</p></div>
             </div>
             <div className="organ-container">
                 <div className="organ-title left-title"><span>脏腑选择区</span></div>

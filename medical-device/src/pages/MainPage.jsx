@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import ChinaMap from "../component/map";
 import "../styles/MainPage.css";
+import  { getCityRank } from '../backend/api';
 const mainPage = (props) => {
-
+    const [ cityRankData, setCityRankData ] = useState([]);
     const { location, setLocation } = props;
     const rankData = [
         {
@@ -16,11 +17,26 @@ const mainPage = (props) => {
             sample: 2,
         },
     ];
+    useEffect(() => {
+        loadData();
+    }, []);
     const handleLocation = (location) => {
         if (!location || location.length === 0) {
             return '中国';
         }
         return location[location.length - 1];
+    };
+    const loadData = () => {
+        getCityRank()
+            .then (res => {
+                return handleData(res);
+            })
+    };
+    const handleData  = (data) => {
+        if (!data) {
+            return;
+        }
+        setCityRankData(data);
     };
     return (
         <div className="main-container">
@@ -37,11 +53,11 @@ const mainPage = (props) => {
                     </div>
                     <div className="rank-ul">
                         <ul>
-                            {rankData.map((item) => {
+                            {cityRankData && cityRankData.map((item) => {
                                 return (
                                     <li >
                                         <div className="li-item">
-                                            <div className="item-city">{item.location}</div>
+                                            <div className="item-city">{item.city}</div>
                                             <div className="item-sample">{item.sample}</div>
                                         </div>
                                     </li>)
