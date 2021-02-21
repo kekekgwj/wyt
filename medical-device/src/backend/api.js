@@ -13,3 +13,7 @@ export const getDeviceNumbByLocation = (location) => {
 export const getSampleNumb = (location) => {
     return get(`${baseUrl}/sample?location=${location}`);
 }
+
+export const getReportListData = (location) => {
+    return get(`${baseUrl}/report?location=${location}`);
+}

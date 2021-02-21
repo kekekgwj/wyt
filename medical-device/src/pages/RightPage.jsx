@@ -1,48 +1,101 @@
 import React, { useState, useEffect }from "react";
 
 import '../styles/rightPage.css';
-import { getDeviceNumbByLocation } from '../backend/api';
+import { getDeviceNumbByLocation, getReportListData } from '../backend/api';
 import  {pinyinConverter} from "../component/pingyinConverter";
 
-const reportListData = [
-    {
-        key: '1',
-        location: '杭州',
-        order: 32,
-        date: '2021-2-3',
-    },
-    {
-        key: '2',
-        location: 'hangzhou',
-        order: 11,
-        date: '2021-2-3',
-    },
-];
+// const reportListData = [
+//     {
+//         location: '浙江杭州',
+//         order: 'A122172',
+//         date: '2021-3-1',
+//     },
+//     {
+//         location: '北京海淀',
+//         order: 'A122170',
+//         date: '2021-2-25',
+//     },
+//     {
+//         location: '广东深圳',
+//         order: 'A193721',
+//         date: '2021-2-25',
+//     },
+//     {
+//         location: '四川成都',
+//         order: 'A186472',
+//         date: '2021-2-25',
+//     },
+//     {
+//         location: '浙江宁波',
+//         order: 'A122822',
+//         date: '2021-2-25',
+//     },
+//     {
+//         location: '湖南长沙',
+//         order: 'A122170',
+//         date: '2021-2-25',
+//     },
+//     {
+//         location: '广东广州',
+//         order: 'A133521',
+//         date: '2021-2-15',
+//     },
+//     {
+//         location: '吉林长春',
+//         order: 'A123720',
+//         date: '2021-2-15',
+//     },
+// ];
 const tableData = [
     {
-        key: '1',
-        order: '1',
+        order: '1122',
         location: '浙江杭州',
         today: '123',
         sevenDays: '322',
         recent: '1-20 14:30'
     },
     {
-        key: '2',
-        order: '1',
+        order: '1221',
         location: '浙江杭州',
         today: '123',
         sevenDays: '322',
         recent: '1-20 14:30'
     },
     {
-        key: '3',
-        order: '1',
+        order: '1341',
         location: '浙江杭州',
         today: '123',
         sevenDays: '322',
         recent: '1-20 14:30'
     },
+    {
+        order: '2734',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    },
+    {
+        order: '2734',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    },
+    {
+        order: '2734',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    },
+    {
+        order: '2734',
+        location: '浙江杭州',
+        today: '123',
+        sevenDays: '322',
+        recent: '1-20 14:30'
+    }
 ];
 
 
@@ -51,20 +104,19 @@ const rightPage = (props) => {
     const [ globalDevice, setGlobalDevice ] = useState(0);
     const [ districtDevice, setDistrictDevice ] = useState(0);
     const [ onlineDevice, setOnlineDevice] = useState(0);
+    const [ reportData, setReportData ] = useState([]);
     useEffect(()=> {
         loadDeviceSummary();
     },[]);
     useEffect(() => {
         loadDistrictDevice(location);
+        loadReportList(location);
     },[location])
     const loadDeviceSummary = () => {
-        loadDistrictDevice();
         loadGlobalDevice();
         loadOnlineDevice();
-
     };
     const loadDistrictDevice = (location) => {
-
         getDeviceNumbByLocation(pinyinConverter(location || 'zhongguo'))
             .then((res) => {
                 setDistrictDevice(res.total);
@@ -80,6 +132,17 @@ const rightPage = (props) => {
         getDeviceNumbByLocation('online')
             .then((res) => {
                 setOnlineDevice(res.total);
+            })
+    };
+    const loadReportList =  (location) => {
+        let lc = pinyinConverter(location);
+        console.log(lc);
+        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
+            lc = 'zhongguo';
+        }
+        getReportListData(lc)
+            .then((res) => {
+                setReportData(res);
             })
     };
     return (
@@ -101,7 +164,7 @@ const rightPage = (props) => {
             <div className="report-list-container">
                 <div className="left-title"><span>用户报告列表</span></div>
                 <ul>
-                {reportListData.map((item, index) => {
+                {  reportData.map((item, index) => {
                     return (<li className="report-item" key={index}>
                         <div className="li-wrapper">
                             <span className="report-item-order">{item.order}</span>
