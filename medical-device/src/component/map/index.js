@@ -44,13 +44,59 @@ export default class ChinaMap extends Component {
     componentDidMount() {
         this.getData()
     }
+
     createMapOption = (data, clickMapId) => {
         const defaultMapObject = {
-            series: [{
+            series: [
+                {
                 type: 'map',
                 map: clickMapId,
                 layoutCenter: ['50%', '50%'],
                 zoom: 1.1,
+                    label: {
+                        normal: {
+                            textStyle: {
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                color: '#007ffe'
+                            }
+                        }
+                    },
+                    itemStyle: {
+                    //地图颜色配置
+                    normal: {
+                        areaColor: {
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0,
+                                color: '#073684' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#061E3D' // 100% 处的颜色
+                            }],
+                        },
+                        borderColor: '#00ccff',
+                        borderWidth: 1,
+                    },
+                    emphasis: {
+                        areaColor: {
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0,
+                                color: '#007ffe' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#00ccff' // 100% 处的颜色
+                            }],
+                        },
+                    }
+                },
                 data: data.features.map((item) => {
                     return {
                         selected: item.properties.name === this.props.defaultSelectedAreaName,
@@ -59,7 +105,12 @@ export default class ChinaMap extends Component {
                         lastLevel: item.properties.childrenNum === 0
                     }
                 })
-            }]
+            },
+
+
+            ],
+
+
         };
         const mapObject = Object.assign(defaultMapObject, this.props.extraOption);
         echarts.registerMap(clickMapId, data);
