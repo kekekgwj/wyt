@@ -1,29 +1,28 @@
 .content-container {
-  width: 1700px;
-  height: 1000px;
+  width: 1850px;
+  height: 950px;
   background: url("../assets/index_bg.png") no-repeat center;
   padding-top: 130px;
 }
 .content-container .header {
-  width: 1700px;
+  width: 1920px;
   height: 200px;
   position: absolute;
   top: 0px;
   background: url("../assets/header_bg.png") no-repeat center;
-  background-size: 1700px;
+  background-size: 1920px;
 }
 .content-container .content {
   display: flex;
 }
 .content-container .content .left-page {
-  flex: 0 0 400px;
+  flex: 0 0 500px;
 }
 .content-container .content .main-page {
   flex: 0 0 900px;
-  max-width: 1000px;
 }
 .content-container .content .right-page {
-  flex: 0 0 400px;
+  flex: 0 0 500px;
 }
 
 /*# sourceMappingURL=App.css.map */

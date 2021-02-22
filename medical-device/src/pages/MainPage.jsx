@@ -5,18 +5,6 @@ import  { getCityRank } from '../backend/api';
 const mainPage = (props) => {
     const [ cityRankData, setCityRankData ] = useState([]);
     const { location, setLocation } = props;
-    const rankData = [
-        {
-            key: '1',
-            location: '杭州',
-            sample: 1
-        },
-        {
-            key: '2',
-            location: '天津',
-            sample: 2,
-        },
-    ];
     useEffect(() => {
         loadData();
     }, []);

@@ -4,48 +4,6 @@ import '../styles/rightPage.css';
 import { getDeviceNumbByLocation, getReportListData } from '../backend/api';
 import  {pinyinConverter} from "../component/pingyinConverter";
 
-// const reportListData = [
-//     {
-//         location: '浙江杭州',
-//         order: 'A122172',
-//         date: '2021-3-1',
-//     },
-//     {
-//         location: '北京海淀',
-//         order: 'A122170',
-//         date: '2021-2-25',
-//     },
-//     {
-//         location: '广东深圳',
-//         order: 'A193721',
-//         date: '2021-2-25',
-//     },
-//     {
-//         location: '四川成都',
-//         order: 'A186472',
-//         date: '2021-2-25',
-//     },
-//     {
-//         location: '浙江宁波',
-//         order: 'A122822',
-//         date: '2021-2-25',
-//     },
-//     {
-//         location: '湖南长沙',
-//         order: 'A122170',
-//         date: '2021-2-25',
-//     },
-//     {
-//         location: '广东广州',
-//         order: 'A133521',
-//         date: '2021-2-15',
-//     },
-//     {
-//         location: '吉林长春',
-//         order: 'A123720',
-//         date: '2021-2-15',
-//     },
-// ];
 const tableData = [
     {
         order: '1122',
@@ -148,22 +106,24 @@ const rightPage = (props) => {
     return (
         <div className="right-container">
             <div className="device-summary-container">
-                <div className="device-global-wrapper device-display-wrapper">
-                    <p className="display-title">全国设备总数</p>
-                    <p className="display-numb">{globalDevice}</p>
-                </div>
-                <div className="device-district-wrapper device-display-wrapper">
-                    <p className="display-title">区域设备数</p>
-                    <p className="display-numb">{districtDevice}</p>
-                </div>
-                <div className="device-online-wrapper device-display-wrapper">
-                    <p className="display-title">在线设备数</p>
-                    <p className="display-numb">{onlineDevice}</p>
+                <div className="device-summary-wrapper">
+                    <div className="device-global-wrapper device-display-wrapper">
+                        <p className="display-title">全国设备总数</p>
+                        <p className="display-numb">{globalDevice}</p>
+                    </div>
+                    <div className="device-district-wrapper device-display-wrapper">
+                        <p className="display-title">区域设备数</p>
+                        <p className="display-numb">{districtDevice}</p>
+                    </div>
+                    <div className="device-online-wrapper device-display-wrapper">
+                        <p className="display-title">在线设备数</p>
+                        <p className="display-numb">{onlineDevice}</p>
+                    </div>
                 </div>
             </div>
             <div className="report-list-container">
                 <div className="left-title"><span>用户报告列表</span></div>
-                <ul>
+                <ul className="report-ul-wrapper">
                 {  reportData.map((item, index) => {
                     return (<li className="report-item" key={index}>
                         <div className="li-wrapper">
@@ -188,6 +148,7 @@ const rightPage = (props) => {
                     <ul className="table-ul">
                         {tableData.map((item, index) => {
                             return (<li className="table-item" key={index}>
+                                    <div className="table-item-icon"></div>
                                     <div className="table-item-order">{item.order}</div>
                                     <div className="table-item-location">{item.location}</div>
                                     <div className="table-item-today">{item.today}</div>

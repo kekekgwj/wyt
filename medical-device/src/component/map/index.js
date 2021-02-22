@@ -203,8 +203,8 @@ export default class ChinaMap extends Component {
             click: this.clickMap,
         };
         const mapStyle = {
-            height: '500px',
-        }
+            height: '850px',
+        };
         const goback = {
             display: 'inline-block',
             marginBottom: '0',
@@ -217,7 +217,8 @@ export default class ChinaMap extends Component {
             fontSize: '12px',
             transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
             position: 'relative',
-            left:  '300px',
+            left:  '630px',
+            top: '-750px',
             color: 'rgba(0, 0, 0, 0.65)',
             backgroundColor: '#fff',
             height: '35px',

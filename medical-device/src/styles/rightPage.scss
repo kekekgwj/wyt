@@ -1,10 +1,13 @@
 .right-container {
-  width: 400px;
+  position: relative;
+  width: 500px;
+  margin-left: -40px;
   .left-title {
-    background: url("../assets/green_bar.png");
-    padding-top: 12px;
-    width: 300px;
+    width: 500px;
     height: 50px;
+    background: url("../assets/green_bar.png") no-repeat left;
+    display: flex;
+    align-items: center;
     color: white;
     text-align: left;
     margin-left: 30px;
@@ -15,17 +18,24 @@
     }
   }
   .device-summary-container {
-    position: relative;
     display: flex;
-    justify-content: space-around ;
-    padding: 30px 0 0 10px;
-    background: url("../assets/wireframe_left_1.png") no-repeat center ;
-    background-size: 400px 150px;
-    width: 400px;
+    justify-content: center;
+    background: url("../assets/wireframe_left_1.png") no-repeat right ;
+    background-size: 510px 180px;
+    width: 510px;
     height: 150px;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+  }
+  .device-summary-wrapper {
+    display: flex;
+    justify-content: space-between ;
+    width:  350px ;
+    align-items: center;
   }
   .device-global-wrapper {
-    background: url("../assets/device_global.png") no-repeat center;
+    background: url("../assets/device_china.png") no-repeat center;
   }
   .device-district-wrapper {
     background: url("../assets/device_district.png") no-repeat center;
@@ -34,40 +44,52 @@
     background: url("../assets/device_online.png") no-repeat center;
   }
   .device-display-wrapper {
-    height: 100px;
-    width: 100px;
-    background-size: 100px;
-    margin-top: 10px;
+    height: 125px;
+    width: 130px;
+    background-size: 115px;
   }
   .display-title {
     text-align: center;
-    margin-top: 45px;
-    color: white;
+    margin-top: 60px;
+    color: lightgrey;
     font-size: 12px;
     font-weight: bold;
   }
   .display-numb {
+    margin-left: 2px;
+    width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
   }
   .report-list-container {
-    margin-top: -50px;
-    padding-top: 40px;
-    height: 550px;
-    background: url("../assets/wireframe_left_2.png") no-repeat left;
-    background-size: 400px 550px;
+    position: absolute;
+    top: 160px;
+    right: 12px;
+    width: 503px;
+    height: 440px;
+    background: url("../assets/wireframe_left_2.png") no-repeat right;
+    background-size: 503px 440px;
+    .left-title {
+      margin-left: 45px;
+      margin-top: 31px;
+    }
   }
   .report-title {
     text-align: center;
   }
+  .report-ul-wrapper {
+    max-height: 300px;
+    overflow: hidden;
+    margin-left: 20px;
+  }
   .report-item {
     color: white;
-    width: 330px;
+    width: 400px;
     height: 50px;
     background: url("../assets/report_list_bg.png") no-repeat center;
-    background-size: 330px;
+    background-size: 400px 60px;
     position: relative;
     list-style: none;
   }
@@ -79,65 +101,72 @@
     align-items: center;
   }
   .report-item-order {
-    margin-left: 24px;
+    margin-left: 20px;
     font-size: 16px;
     color: #00ccff;
     text-align: center;
-    width: 100px;
+    width: 130px;
   }
   .report-item-location {
     margin-left: 0;
     font-size: 16px;
     color: #22cea6;
     text-align: center;
-    width: 80px;
+    width: 100px;
   }
   .report-item-date {
     margin-left: 0;
     font-size: 16px;
     color: #fec33d;
     text-align: center;
-    width: 100px;
+    width: 130px;
   }
   .device-list-container {
-    margin-top: -50px;
-    padding-top: 20px;
-    background: url("../assets/wireframe_left_3.png") no-repeat left;
+    position: absolute;
+    top: 570px;
+    right: -8px;
+    background: url("../assets/wireframe_left_3.png") no-repeat right;
     margin-right: 15px;
-    height: 300px;
-    background-size: 400px 300px;
+    width: 508px;
+    height: 370px;
+    background-size: 508px 370px;
+    font-size: 12px;
+    color: white;
+    .left-title {
+      margin-left: 45px;
+      margin-top: 31px;
+    }
   }
   .device-list-title {
     text-align: center;
   }
-  .device-list-container {
-    font-size: 12px;
-    color: white;
-    position: relative;
+  .table-wrapper {
+    position: absolute;
+    width:  420px;
+    height: 300px;
+    left: 55px;
+    padding-top: 20px;
     ul {
-      position:  absolute;
-      top: 100px;
+      margin-left: -40px;
+      margin-top: 0px;
     }
   }
   .table-title {
-    width: 335px;
-    height: 25px;
-    position: absolute;
-    left: 40px;
-    top: 90px;
+    width: 420px;
+    height: 30px;
     background: url("../assets/device_table_title.png")no-repeat left;
-    background-size: 335px 25px;
+    background-size: 420px 30px;
     display: flex;
     align-items: center;
     font-size:  12px;
     color: #00ccff;
-
     div {
       text-align: center;
     }
   }
   .table-title-order {
-    width: 70px;
+    margin-left: 30px;
+    width: 65px;
   }
   .table-title-location {
     width: 50px;
@@ -152,10 +181,10 @@
     width: 80px;
   }
   .table-item {
-    width: 335px;
-    height: 25px;
-    background: url("../assets/device_table_item_bg_light.png");
-    background-size: 335px 25px;
+    width: 420px;
+    height: 30px;
+    background: url("../assets/device_table_item_bg_light.png") no-repeat left;
+    background-size: 420px 30px;
     display: flex;
     align-items: center;
     font-size: 10px;
@@ -163,13 +192,24 @@
       text-align: center;
     }
   }
+
   .table-ul {
     list-style: none;
-    position: absolute;
-    top: 90px;
+
+    max-height: 300px;
+    overflow: hidden;
+
+  }
+  .table-item-icon {
+    background: url('../assets/cart.png') no-repeat center;
+    background-size: 26px;
+    width: 26px;
+    height: 26px;
+    margin-left: 5px;
+
   }
   .table-item-order {
-    width: 70px;
+    width: 62px;
   }
   .table-item-location {
     width: 50px;
