@@ -15,6 +15,7 @@ import organ12 from '../assets/organ12.png';
 import { Chart, Line, Point, Tooltip, Legend } from 'bizcharts';
 import  { getSampleNumb } from  '../backend/api';
 import { pinyinConverter } from '../component/pingyinConverter';
+import LineEcharts from '../component/lineChart/index';
 
 // 数据源
 const data = [
@@ -201,7 +202,10 @@ const leftPage = (props) => {
             <div className="table-container">
                 <div className="table-title left-title"><span>健康趋势图</span></div>
                 <div className="table-wrapper">
-                    {Demo()}
+                    <LineEcharts data={{
+                        x: ['2019-11-21', '2019-11-22', '2019-11-23', '2019-11-24', '2019-11-25', '2019-11-26'],
+                        y: [20, 50, 80, 70, 45, 85]
+                    }} y yname="单位：件" />
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import ReactEcharts from 'echarts-for-react'
 import echarts from 'echarts'
 import PropTypes from 'prop-types'
 
-import styles from './styles.less'
 const requestPrefix = 'https://datavmap-public.oss-cn-hangzhou.aliyuncs.com/areas/children';
 
 export default class ChinaMap extends Component {
@@ -251,4 +250,4 @@ export default class ChinaMap extends Component {
         );
     }
 }
-styles
+

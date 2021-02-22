@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChinaMap from "../component/map";
+import  {Timer} from "../component/timer"
 import "../styles/MainPage.css";
 import  { getCityRank } from '../backend/api';
 const mainPage = (props) => {
@@ -33,6 +34,9 @@ const mainPage = (props) => {
                     <ChinaMap
                         onChange = {((data) => {setLocation(handleLocation(data))})}
                     />
+                </div>
+                <div className="timer">
+                    <Timer/>
                 </div>
                 <div className="rank-list">
                     <div className="rank-title">
