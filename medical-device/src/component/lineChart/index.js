@@ -22,56 +22,65 @@ class LineEcharts extends Component {
 
     initEchart = (data) => {
         let myEcharts = echarts.init(this.echartsBox)
-        let option = {
-            title: {
-                text: this.props.title || '',
-                left: 'center',
-                top: '0'
-            },
-            tooltip: {
-                show: true,
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        show: false
+        const option = {
+            xAxis: {
+                type: 'category',
+                data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#6A989E',
                     }
                 },
-                formatter: '{b}<br/>汇总：{c}',
-                extraCssText: 'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);'
-            },
-            xAxis: {
-                data: data.x,
-                axisTick: {
-                    alignWithLabel: true
+                axisLabel: {
+                    inside: false,
+                    textStyle: {
+                        color: '#00ccff',// x轴颜色
+                        fontWeight: 'normal',
+                        fontSize: '14',
+                        lineHeight: 12
+                    }
+                },
+                axisTick : {
+                    interval: 0,
                 }
+
             },
             yAxis: {
-                name: this.props.yname,
-                nameGap: 15,
-                position: 'left',
-                axisTick: {
-                    inside: true
+                type: 'value',
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#6A989E',
+                    }
                 },
                 axisLabel: {
-                    formatter: '{value}'
-                }
-            },
-            series: [{
-                name: '汇总',
-                type: 'line',
-                data: data.y,
-                smooth: false,
-                lineStyle: {
-                    color: '#00CC99',
-                    width: 2
+                    inside: false,
+                    textStyle: {
+                        color: '#00ccff',// x轴颜色
+                        fontWeight: 'normal',
+                        fontSize: '14',
+                        lineHeight: 22
+                    }
+
                 },
-                itemStyle: {
-                    color: '#fff',
-                    borderColor: '#000'
+            },
+            series: [
+                {
+                data: [820, 932, 901, 934, 129, 133, 120, 901, 934, 129, 133, 120],
+                type: 'line',
+                smooth: true,
+                color: 'blue'
+                },
+                {
+                    data: [810, 92, 91, 94, 190, 330, 130],
+                    type: 'line',
+                    smooth: true,
+                    color: 'red'
                 }
-            }]
-        }
+                ]
+
+        };
         myEcharts.setOption(option)
         myEcharts.on('finished', () => {
             myEcharts.resize()

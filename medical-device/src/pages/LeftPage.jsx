@@ -12,156 +12,77 @@ import organ9 from '../assets/organ9.png';
 import organ10 from '../assets/organ10.png';
 import organ11 from '../assets/organ11.png';
 import organ12 from '../assets/organ12.png';
-import { Chart, Line, Point, Tooltip, Legend } from 'bizcharts';
 import  { getSampleNumb } from  '../backend/api';
 import { pinyinConverter } from '../component/pingyinConverter';
-import LineEcharts from '../component/lineChart/index';
+import {LineChart} from '../component/chart/index';
 
-// 数据源
-const data = [
-    {
-        month: "1",
-        organ: "大脑",
-        score: 5
+const organList = ['heart', 'temper', 'brain', 'liver', 'bravery', 'breast',
+    'kidney', 'spleen', 'stomach', 'largeIntestine', 'smallIntestine', 'reproduction'];
+const selectedOrgan =  {
+    heart: false,
+    temper: false,
+    liver: false,
+    brain: false,
+    breast: false,
+    kidney: false,
+    spleen: false,
+    largeIntestine: false,
+    smallIntestine: false,
+    reproduction: false,
+    stomach: false,
+    bravery: false
+};
+const chartDataSource = {
+    heart: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#22cea6',
     },
-    {
-        month: "1",
-        organ: "心脏",
-        score: 100
+    temper: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#fec33d',
     },
-    {
-        month: "1",
-        organ: "脾",
-        score: 50
+    liver: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#da5d26',
     },
-    {
-        month: "1",
-        organ: "肝",
-        score: 50
+    brain: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#ff167c',
     },
-    {
-        month: "1",
-        organ: "胆",
-        score: 50
+    breast: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#a22460',
     },
-    {
-        month: "1",
-        organ: "胸乳",
-        score: 50
+    kidney: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#9817b1',
     },
-    {
-        month: "1",
-        organ: "肾",
-        score: 50
+    spleen: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#44b569',
     },
-    {
-        month: "1",
-        organ: "肺",
-        score: 50
+    largeIntestine: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#007ffe',
     },
-    {
-        month: "1",
-        organ: "胃",
-        score: 50
+    smallIntestine: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#03ffe8',
     },
-    {
-        month: "1",
-        organ: "大肠",
-        score: 50
+    reproduction: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#1acd40',
     },
-    {
-        month: "1",
-        organ: "小肠",
-        score: 50
+    stomach: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#c4fc00',
     },
-    {
-        month: "1",
-        organ: "生殖",
-        score: 50
+    bravery: {
+        data:[1, 2, 3, 4, 5, 10, 40, 50, 60, 30, 20 ,10],
+        color:'#ffa900',
     },
-    {
-        month: "2",
-        organ: "大脑",
-        score: 10
-    },
-    {
-        month: "3",
-        organ: "大脑",
-        score: 12
-    },
-    {
-        month: "4",
-        organ: "大脑",
-        score: 44
-    },
-    {
-        month: "5",
-        organ: "大脑",
-        score: 66
-    },
-    {
-        month: "6",
-        organ: "大脑",
-        score: 22
-    },
-    {
-        month: "7",
-        organ: "大脑",
-        score: 88
-    },
-    {
-        month: "8",
-        organ: "大脑",
-        score: 99
-    },
-    {
-        month: "9",
-        organ: "大脑",
-        score: 30
-    },
-    {
-        month: "10",
-        organ: "大脑",
-        score: 22
-    },
-    {
-        month: "11",
-        organ: "大脑",
-        score: 34
-    },
-    {
-        month: "12",
-        organ: "大脑",
-        score: 80
-    }
-];
 
-const scale = {
-    score: { min: 0 },
-    city: {
-        formatter: v => {
-            return {
-                brain: '大脑',
-            }[v]
-        }
-    }
-}
-
-function Demo() {
-    return <Chart scale={scale} padding={[30, 20, 60, 40]} autoFit height={200} data={data} interactions={['element-active']}>
-        <Point position="month*score" color="organ" shape='circle' />
-        <Line shape="smooth" position="month*score" color="organ" label="score" />
-        <Tooltip shared showCrosshairs />
-        <Legend position="bottom-left" background={{
-            padding:[5,240,5,36],
-            style: {
-                fill: '#ffffff',
-                stroke: '#fff'
-            }
-        }} />
-    </Chart>
-}
-
+};
 
 const leftPage = (props) => {
     const { location } = props;
@@ -172,7 +93,19 @@ const leftPage = (props) => {
                 setSample(res.total);
             })
     };
+    const [ organData, setOrganData ] = useState([]);
+    const handleOrganClick = (e) => {
+        const curOrgan = e.target.id;
+        selectedOrgan[curOrgan] = !selectedOrgan[curOrgan];
 
+        const displayData = [];
+        for (let organ in selectedOrgan) {
+            if (selectedOrgan[organ]) {
+                displayData.push(chartDataSource[organ])
+            }
+        };
+        setOrganData(displayData);
+    };
     useEffect(() => {
         loadSample(location);
     }, [location]);
@@ -184,7 +117,7 @@ const leftPage = (props) => {
             </div>
             <div className="organ-container">
                 <div className="organ-title left-title"><span>脏腑选择区</span></div>
-                <div className="organ-wrapper">
+                <div className="organ-wrapper" onClick={(event => {console.log(event.target.id)})}>
                     <img src={organ1} alt="organ" className="organ-icon" id={"heart"}/>
                     <img src={organ2} alt="organ" className="organ-icon" id={"brain"}/>
                     <img src={organ3} alt="organ" className="organ-icon" id={"temper"}/>
@@ -202,10 +135,7 @@ const leftPage = (props) => {
             <div className="table-container">
                 <div className="table-title left-title"><span>健康趋势图</span></div>
                 <div className="table-wrapper">
-                    <LineEcharts data={{
-                        x: ['2019-11-21', '2019-11-22', '2019-11-23', '2019-11-24', '2019-11-25', '2019-11-26'],
-                        y: [20, 50, 80, 70, 45, 85]
-                    }} y yname="单位：件" />
+                    <LineChart/>
                 </div>
             </div>
         </div>
