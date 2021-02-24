@@ -1,6 +1,7 @@
 import React from "react";
-
 import  './styles.css';
+import {pinyinConverter} from "../pingyinConverter";
+import {getReportListData} from "../../backend/api";
 let scrollInterval='';
 class scrollList extends React.Component {
 
@@ -34,7 +35,7 @@ class scrollList extends React.Component {
         ],
         listMarginTop:"0",
         animate:false,
-    }
+    };
 
     scrollUp= e =>{
         this.state.data.push(this.state.data[0]);
@@ -86,6 +87,19 @@ class scrollList extends React.Component {
 
     endScroll= e =>{
         clearInterval(scrollInterval);
+    };
+    loadReportList =  (location) => {
+        let lc = pinyinConverter(location);
+        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
+            lc = 'zhongguo';
+        }
+        getReportListData(lc)
+            .then((res) => {
+                this.state.data= res;
+            })
+    };
+    componentWillMount() {
+        this.loadReportList(this.props.location);
     }
     componentDidMount() {
         this.startScrollDown();

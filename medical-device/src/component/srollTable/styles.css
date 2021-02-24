@@ -1,0 +1,48 @@
+.table-item {
+  width: 420px;
+  height: 30px;
+  background: url("../../assets/device_table_item_bg_light.png") no-repeat left;
+  background-size: 420px 30px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+.table-item div {
+  text-align: center;
+}
+
+.table-ul {
+  list-style: none;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.table-item-icon {
+  background: url("../../assets/cart.png") no-repeat center;
+  background-size: 26px;
+  width: 26px;
+  height: 26px;
+  margin-left: 5px;
+}
+
+.table-item-order {
+  width: 62px;
+}
+
+.table-item-location {
+  width: 50px;
+}
+
+.table-item-today {
+  width: 70px;
+}
+
+.table-item-sevendays {
+  width: 80px;
+}
+
+.table-item-recent {
+  width: 80px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -79,48 +79,6 @@
   .report-title {
     text-align: center;
   }
-  .report-ul-wrapper {
-    max-height: 300px;
-    overflow: hidden;
-    margin-left: 20px;
-  }
-  .report-item {
-    color: white;
-    width: 400px;
-    height: 60px;
-    background: url("../assets/report_list_bg.png") no-repeat center;
-    background-size: 400px 70px;
-    position: relative;
-    list-style: none;
-  }
-  .li-wrapper {
-    position: absolute;
-    bottom: 0;
-    height: 30px;
-    display: flex;
-    align-items: center;
-  }
-  .report-item-order {
-    margin-left: 20px;
-    font-size: 16px;
-    color: #00ccff;
-    text-align: center;
-    width: 130px;
-  }
-  .report-item-location {
-    margin-left: 0;
-    font-size: 16px;
-    color: #22cea6;
-    text-align: center;
-    width: 100px;
-  }
-  .report-item-date {
-    margin-left: 0;
-    font-size: 16px;
-    color: #fec33d;
-    text-align: center;
-    width: 130px;
-  }
   .device-list-container {
     position: absolute;
     top: 570px;
@@ -178,49 +136,6 @@
     width: 80px;
   }
   .table-title-recent {
-    width: 80px;
-  }
-  .table-item {
-    width: 420px;
-    height: 30px;
-    background: url("../assets/device_table_item_bg_light.png") no-repeat left;
-    background-size: 420px 30px;
-    display: flex;
-    align-items: center;
-    font-size: 10px;
-    div {
-      text-align: center;
-    }
-  }
-
-  .table-ul {
-    list-style: none;
-
-    max-height: 300px;
-    overflow: hidden;
-
-  }
-  .table-item-icon {
-    background: url('../assets/cart.png') no-repeat center;
-    background-size: 26px;
-    width: 26px;
-    height: 26px;
-    margin-left: 5px;
-
-  }
-  .table-item-order {
-    width: 62px;
-  }
-  .table-item-location {
-    width: 50px;
-  }
-  .table-item-today {
-    width: 70px;
-  }
-  .table-item-sevendays {
-    width: 80px;
-  }
-  .table-item-recent {
     width: 80px;
   }
 

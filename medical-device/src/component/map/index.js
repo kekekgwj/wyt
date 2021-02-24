@@ -40,6 +40,7 @@ export default class ChinaMap extends Component {
             clickItemArray: []
         }
     }
+
     componentDidMount() {
         this.getData()
     }
