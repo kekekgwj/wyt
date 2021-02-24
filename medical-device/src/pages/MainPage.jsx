@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChinaMap from "../component/map";
+import LinesMap from "../component/mapLines/index";
 import  {Timer} from "../component/timer"
 import "../styles/MainPage.css";
 import  { getCityRank } from '../backend/api';
@@ -35,6 +36,9 @@ const mainPage = (props) => {
                         onChange = {((data) => {setLocation(handleLocation(data))})}
                     />
                 </div>
+                <a className="lines-wrapper">
+                    {location ==="中国" && <LinesMap/>}
+                </a>
                 <div className="timer">
                     <Timer/>
                 </div>

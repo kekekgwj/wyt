@@ -16,10 +16,19 @@
     left: 60px;
   }
   .map-wrapper {
+    display: block;
     position: absolute;
     width: 800px;
     top: 100px;
     margin-left: 60px;
+
+  }
+  .lines-wrapper {
+    position: absolute;
+    width: 800px;
+    top: 70px;
+    left: 80px;
+    pointer-events: none;
   }
   .title {
     background: url("../assets/title_center.png") no-repeat center;
