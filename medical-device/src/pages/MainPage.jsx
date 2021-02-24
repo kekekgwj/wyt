@@ -45,9 +45,9 @@ const mainPage = (props) => {
                     </div>
                     <div className="rank-ul">
                         <ul>
-                            {cityRankData && cityRankData.map((item) => {
+                            {cityRankData && cityRankData.map((item,index) => {
                                 return (
-                                    <li >
+                                    <li key={index}>
                                         <div className="li-item">
                                             <div className="item-city">{item.city}</div>
                                             <div className="item-sample">{item.sample}</div>

@@ -69,7 +69,54 @@
 .left-container .table-wrapper {
   width: 450px;
   height: 300px;
-  padding-left: 30px;
+  position: absolute;
+  top: 45px;
+  left: 40px;
+}
+.left-container .table-note {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 400px;
+  position: absolute;
+  top: 310px;
+  left: 70px;
+}
+.left-container .table-note-item {
+  display: flex;
+  align-items: center;
+  width: 60px;
+  color: #397cbc;
+  height: 20px;
+}
+.left-container .table-note-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.left-container .animate {
+  transition: all 0.8s;
+}
+.left-container .opacityAnimation {
+  animation: opacityAnimation 1s 1;
+  -webkit-animation: opacityAnimation 1s 1;
+}
+@keyframes opacityAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes opacityAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=LeftPage.css.map */

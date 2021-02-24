@@ -63,6 +63,11 @@ const rightPage = (props) => {
     const [ districtDevice, setDistrictDevice ] = useState(0);
     const [ onlineDevice, setOnlineDevice] = useState(0);
     const [ reportData, setReportData ] = useState([]);
+
+    // list animate
+    const [ animate, setAnimate ] = useState(false);
+    const [ listMarginTop, setListMarginTop] = useState("0");
+
     useEffect(()=> {
         loadDeviceSummary();
     },[]);
@@ -102,7 +107,10 @@ const rightPage = (props) => {
             .then((res) => {
                 setReportData(res);
             })
+
+
     };
+
     return (
         <div className="right-container">
             <div className="device-summary-container">
@@ -123,8 +131,8 @@ const rightPage = (props) => {
             </div>
             <div className="report-list-container">
                 <div className="left-title"><span>用户报告列表</span></div>
-                <ul className="report-ul-wrapper">
-                {  reportData.map((item, index) => {
+                <ul className={(animate ? "animate" : '') + "report-ul-wrapper"} id="scrollList" style={{marginTop:listMarginTop}} >
+                {  reportData && reportData.map((item, index) => {
                     return (<li className="report-item" key={index}>
                         <div className="li-wrapper">
                             <span className="report-item-order">{item.order}</span>
