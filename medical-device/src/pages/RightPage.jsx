@@ -1,9 +1,9 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect, useReducer }from "react";
 
 import '../styles/rightPage.css';
 import { getDeviceNumbByLocation, getReportListData } from '../backend/api';
 import  {pinyinConverter} from "../component/pingyinConverter";
-
+import ScrollList from "../component/scorllList/index";
 const tableData = [
     {
         order: '1122',
@@ -63,7 +63,7 @@ const rightPage = (props) => {
     const [ districtDevice, setDistrictDevice ] = useState(0);
     const [ onlineDevice, setOnlineDevice] = useState(0);
     const [ reportData, setReportData ] = useState([]);
-
+    const [ignored, forceUpdate] = useReducer(x => x+1 , 0);
     // list animate
     const [ animate, setAnimate ] = useState(false);
     const [ listMarginTop, setListMarginTop] = useState("0");
@@ -99,16 +99,55 @@ const rightPage = (props) => {
     };
     const loadReportList =  (location) => {
         let lc = pinyinConverter(location);
-        console.log(lc);
         if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
             lc = 'zhongguo';
         }
         getReportListData(lc)
             .then((res) => {
-                setReportData(res);
+                setReportData(res.splice(0,5));
             })
+    };
+
+    const [sw, setSw] = useState(true);
+    useEffect(() => {
+        if (!sw) {
+            return;
+        }
+        if (reportData && reportData.length > 0) {
+            setSw(false);
+            startScrollDown();
+        }
+    },[reportData]);
+    const scrollDown= e =>{
+        let ulNode=document.getElementById("scrollList");
+        ulNode.firstChild.classList.remove("opacityAnimation");
+        setAnimate(true);
+        setListMarginTop(ulNode.lastChild.scrollHeight+"px");
 
 
+        setTimeout(() => {
+            // ADD THE LAST ELEMENT INTO THE HEAD
+            const lastOne = reportData[reportData.length - 1];
+            const addedData = [lastOne].concat(reportData);
+            console.log(addedData);
+            setReportData(addedData);
+            ulNode.firstChild.classList.add("opacityAnimation");
+            // delete the last element
+            setReportData(addedData.slice(0, addedData.length - 1));
+            setAnimate(true);
+            setListMarginTop("0");
+            forceUpdate();
+        }, 1000)
+
+    };
+    let scrollInterval = null;
+    const startScrollDown= e =>{
+        endScroll();
+        scrollDown();
+        scrollInterval=setInterval(scrollDown, 3000);
+    };
+    const endScroll= e =>{
+        clearInterval(scrollInterval);
     };
 
     return (
@@ -131,17 +170,18 @@ const rightPage = (props) => {
             </div>
             <div className="report-list-container">
                 <div className="left-title"><span>用户报告列表</span></div>
-                <ul className={(animate ? "animate" : '') + "report-ul-wrapper"} id="scrollList" style={{marginTop:listMarginTop}} >
-                {  reportData && reportData.map((item, index) => {
-                    return (<li className="report-item" key={index}>
-                        <div className="li-wrapper">
-                            <span className="report-item-order">{item.order}</span>
-                            <span className="report-item-location">{item.location}</span>
-                            <span className="report-item-date">{item.date}</span>
-                        </div>
-                    </li>)
-                })}
-                </ul>
+                <ScrollList/>
+                {/*<ul className={`${animate ? "animate" : ''}  report-ul-wrapper`} id="scrollList"  >*/}
+                {/*{  reportData  && reportData.map((item, index) => {*/}
+                {/*    return (<li className="report-item" key={index}>*/}
+                {/*        <div className="li-wrapper">*/}
+                {/*            <span className="report-item-order">{item.order}</span>*/}
+                {/*            <span className="report-item-location">{item.location}</span>*/}
+                {/*            <span className="report-item-date">{item.date}</span>*/}
+                {/*        </div>*/}
+                {/*    </li>)*/}
+                {/*})}*/}
+                {/*</ul>*/}
             </div>
             <div className="device-list-container">
                 <div className="left-title"><span>设备情况列表</span></div>
