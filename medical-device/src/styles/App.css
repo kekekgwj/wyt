@@ -1,8 +1,16 @@
 .content-container {
-  width: 1850px;
-  height: 950px;
-  background: url("../assets/index_bg.png") no-repeat center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 5000px;
+  min-width: 1900px;
+  min-height: 950px;
+  background: url("../assets/index_bg.png") center;
+  background-size: cover;
   padding-top: 130px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 .content-container .header {
   width: 1920px;

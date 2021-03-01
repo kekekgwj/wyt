@@ -184,8 +184,8 @@ const leftPage = (props) => {
                     <img src={organ5} alt="organ" className="organ-icon" id={"gallbladder"}/>
                     <img src={organ6} alt="organ" className="organ-icon" id={"breast"}/>
                     <img src={organ7} alt="organ" className="organ-icon" id={"kidney"}/>
-                    <img src={organ9} alt="organ" className="organ-icon" id={"stomach"}/>
                     <img src={organ8} alt="organ" className="organ-icon" id={"spleen"}/>
+                    <img src={organ9} alt="organ" className="organ-icon" id={"stomach"}/>
                     <img src={organ10} alt="organ" className="organ-icon" id={"largeIntestine"}/>
                     <img src={organ11} alt="organ" className="organ-icon" id={"smallIntestine"}/>
                     <img src={organ12} alt="organ" className="organ-icon" id={"reproduction"}/>
