@@ -1,36 +1,35 @@
 .content-container {
-  width: 100vw;
-  height: 100vh;
-  max-width: 5000px;
-  min-width: 1900px;
-  min-height: 950px;
-  background: url("../assets/index_bg.png") center;
-  background-size: cover;
-  padding-top: 130px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    max-width: 5000px;
+    min-width: 1900px;
+    min-height: 1060px;
+    background: url("../assets/index_bg.png") center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
 }
 .content-container .header {
-  width: 1920px;
-  height: 200px;
-  position: absolute;
-  top: 0px;
-  background: url("../assets/header_bg.png") no-repeat center;
-  background-size: 1920px;
+    width: 1840px;
+    height: 200px;
+    margin-left: 40px;
+    position: absolute;
+    top: 0px;
+    background: url("../assets/header_bg.png") no-repeat center;
+    background-size: 1900px;
 }
 .content-container .content {
-  display: flex;
+    margin-top: 130px;
+    display: flex;
 }
 .content-container .content .left-page {
-  flex: 0 0 500px;
+    flex: 0 0 500px;
 }
 .content-container .content .main-page {
-  flex: 0 0 900px;
+    flex: 0 0 900px;
 }
 .content-container .content .right-page {
-  flex: 0 0 500px;
+    flex: 0 0 500px;
 }
-
-/*# sourceMappingURL=App.css.map */
