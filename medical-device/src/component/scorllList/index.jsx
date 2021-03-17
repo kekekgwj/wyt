@@ -97,12 +97,19 @@ class scrollList extends React.Component {
             .then((res) => {
                 this.state.data= res;
             })
+            .catch((err) => {
+                console.log(err);
+            })
     };
     componentWillMount() {
         this.loadReportList(this.props.location);
     }
     componentDidMount() {
         this.startScrollDown();
+    }
+    componentWillReceiveProps(nextProps) {
+        const newLocation = nextProps.location;
+        this.loadReportList(newLocation);
     }
     render () {
         return (

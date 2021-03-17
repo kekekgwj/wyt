@@ -73,7 +73,7 @@ const rightPage = (props) => {
                         <div className="table-title-sevendays">近七日检测数</div>
                         <div className="table-title-recent">最近检测时间</div>
                     </div>
-                    <ScrollTable />
+                    <ScrollTable location={location}/>
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@ import organ9 from '../assets/organ9.png';
 import organ10 from '../assets/organ10.png';
 import organ11 from '../assets/organ11.png';
 import organ12 from '../assets/organ12.png';
-import  { getSampleNumb } from  '../backend/api';
+import  { getSampleNumb, getOrganDataSource } from  '../backend/api';
 import { pinyinConverter } from '../component/pingyinConverter';
 import {LineChart} from '../component/chart/index';
 
@@ -146,28 +146,57 @@ const chartDataSource = {
 const leftPage = (props) => {
     const { location } = props;
     const [ sample, setSample ] = useState(0);
+    const [ organDataSource, setOrganDataSource ] = useState({});
     const loadSample = (location) => {
-        getSampleNumb(pinyinConverter(location))
+        let lc = pinyinConverter(location);
+        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
+            lc = 'zhongguo';
+        }
+        getSampleNumb(lc)
             .then(res => {
                 setSample(res.total);
+            })
+    };
+    const loadOrganData = (location) => {
+
+        let lc = pinyinConverter(location);
+        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
+            lc = 'zhongguo';
+        }
+        getOrganDataSource(lc)
+            .then(res => {
+                setOrganDataSource(res);
+
+            })
+            .catch(()=> {
+                setOrganDataSource(chartDataSource);
             })
     };
     const [ organData, setOrganData ] = useState([]);
     const handleOrganClick = (e) => {
         const curOrgan = e.target.id;
         selectedOrgan[curOrgan] = !selectedOrgan[curOrgan];
+        handleDisplayOrgan();
+    };
+    const handleDisplayOrgan = () => {
         const displayData = [];
-        for (let organ in selectedOrgan) {
-            if (selectedOrgan[organ]) {
-                displayData.push(chartDataSource[organ])
-            }
+        if (!organDataSource) {
+            return;
         };
+        for (let organ in selectedOrgan) {
+            if (selectedOrgan[organ]  ) {
+                displayData.push(organDataSource[organ])
+            }
+        }
         setOrganData(displayData);
-
     };
     useEffect(() => {
         loadSample(location);
+        loadOrganData(location);
     }, [location]);
+    useEffect(() => {
+        handleDisplayOrgan();
+    }, [organDataSource]);
     return (
         <div className="left-container">
             <div className="sample-container">

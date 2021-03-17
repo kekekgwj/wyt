@@ -4,12 +4,13 @@ import LinesMap from "../component/mapLines/index";
 import  {Timer} from "../component/timer"
 import "../styles/MainPage.css";
 import  { getCityRank } from '../backend/api';
+import {pinyinConverter} from "../component/pingyinConverter";
 const mainPage = (props) => {
     const [ cityRankData, setCityRankData ] = useState([]);
     const { location, setLocation } = props;
     useEffect(() => {
         loadData();
-    }, []);
+    }, [location]);
     const handleLocation = (location) => {
         if (!location || location.length === 0) {
             return '中国';
@@ -17,7 +18,11 @@ const mainPage = (props) => {
         return location[location.length - 1];
     };
     const loadData = () => {
-        getCityRank()
+        let lc = pinyinConverter(location);
+        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
+            lc = 'zhongguo';
+        }
+        getCityRank(lc)
             .then (res => {
                 return handleData(res);
             })
