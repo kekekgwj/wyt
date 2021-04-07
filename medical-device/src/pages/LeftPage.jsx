@@ -161,12 +161,11 @@ const leftPage = (props) => {
 
         let lc = pinyinConverter(location);
         if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-            lc = 'zhongguo';
+            lc = 'zhongguo1';
         }
         getOrganDataSource(lc)
             .then(res => {
                 setOrganDataSource(res);
-
             })
             .catch(()=> {
                 setOrganDataSource(chartDataSource);

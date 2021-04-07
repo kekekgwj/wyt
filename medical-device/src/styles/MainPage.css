@@ -112,5 +112,35 @@
   top: 50px;
   left: 20px;
 }
+.main-container .block-box-container {
+  position: absolute;
+  bottom: 80px;
+  right: 30px;
+  width: 300px;
+  height: 200px;
+  background: url("../assets/wireframe_current_location.png") no-repeat center;
+  background-size: 300px;
+}
+.main-container .block-box-title {
+  color: #007ffc;
+  position: absolute;
+  right: 115px;
+  top: 23px;
+}
+.main-container .block-box-wrapper {
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+  color: #22cea6;
+  position: absolute;
+  top: 65px;
+  left: 30px;
+}
+.main-container .block-box-wrapper p {
+  width: 60px;
+  line-height: 0;
+  margin: 12px;
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=MainPage.css.map */
