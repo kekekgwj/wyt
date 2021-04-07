@@ -4,7 +4,6 @@ import LinesMap from "../component/mapLines/index";
 import  {Timer} from "../component/timer"
 import "../styles/MainPage.css";
 import  { getCityRank } from '../backend/api';
-import {pinyinConverter} from "../component/pingyinConverter";
 const mainPage = (props) => {
     const [ cityRankData, setCityRankData ] = useState([]);
     const { location, setLocation } = props;
@@ -30,13 +29,12 @@ const mainPage = (props) => {
         setLocation(curLocation);
     };
     const loadData = () => {
-        // let lc = pinyinConverter(location);
-        // if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-        //     lc = 'zhongguo';
-        // }
         getCityRank(location)
             .then (res => {
                 return handleData(res);
+            })
+            .catch(err => {
+                console.log(err);
             })
     };
     const handleData  = (data) => {

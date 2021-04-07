@@ -1,6 +1,5 @@
 import React from "react";
 import  './styles.css';
-import {pinyinConverter} from "../pingyinConverter";
 import {getDeviceListData} from "../../backend/api";
 let scrollInterval='';
 
@@ -114,11 +113,7 @@ class scrollTable extends React.Component {
         clearInterval(scrollInterval);
     };
     loadDeviceList =  (location) => {
-        let lc = pinyinConverter(location);
-        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-            lc = 'zhongguo';
-        }
-        getDeviceListData(lc)
+        getDeviceListData(location)
             .then((res) => {
                 this.state.data= res;
             })

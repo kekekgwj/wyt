@@ -1,6 +1,5 @@
 import React from "react";
 import  './styles.css';
-import {pinyinConverter} from "../pingyinConverter";
 import {getReportListData} from "../../backend/api";
 let scrollInterval='';
 class scrollList extends React.Component {
@@ -89,11 +88,7 @@ class scrollList extends React.Component {
         clearInterval(scrollInterval);
     };
     loadReportList =  (location) => {
-        let lc = pinyinConverter(location);
-        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-            lc = 'zhongguo';
-        }
-        getReportListData(lc)
+        getReportListData(location)
             .then((res) => {
                 this.state.data= res;
             })

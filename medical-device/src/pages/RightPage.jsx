@@ -23,9 +23,12 @@ const rightPage = (props) => {
         loadOnlineDevice();
     };
     const loadDistrictDevice = (location) => {
-        getDeviceNumbByLocation(pinyinConverter(location || 'zhongguo'))
+        getDeviceNumbByLocation(location)
             .then((res) => {
                 setDistrictDevice(res.total);
+            })
+            .catch(err => {
+                console.log(err);
             })
     };
     const loadGlobalDevice = () => {
@@ -33,11 +36,17 @@ const rightPage = (props) => {
             .then((res) => {
                 setGlobalDevice(res.total);
             })
+            .catch(err => {
+                console.log(err);
+            })
     };
     const loadOnlineDevice = () => {
         getDeviceNumbByLocation('online')
             .then((res) => {
                 setOnlineDevice(res.total);
+            })
+            .catch(err => {
+                console.log(err);
             })
     };
 

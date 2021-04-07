@@ -5,33 +5,30 @@ const baseUrl = 'http://rap2api.taobao.org/app/mock/277746/GET';
 
 export const getCityRank = (location) => {
     return prevProcessGetAPI('city-rank', location);
-    // return get(`${baseUrl}/city-rank?location=${location}`);
 };
 
 export const getDeviceNumbByLocation = (location) => {
-    return get(`${baseUrl}/location-device?location=${location}`);
+    return prevProcessGetAPI('location-device', location);
 };
 
 export const getSampleNumb = (location) => {
-    return get(`${baseUrl}/sample?location=${location}`);
+    return prevProcessGetAPI('sample', location);
 }
 
 export const getOrganDataSource = (location) => {
-    return get(`${baseUrl}/organ?location=${location}`);
+    return prevProcessGetAPI('organ', location);
 }
 export const getReportListData = (location) => {
-    return get(`${baseUrl}/report-list?location=${location}`);
+    return prevProcessGetAPI('report-list', location);
 }
 
 export const getDeviceListData = (location) => {
-    return get(`${baseUrl}/device-list?location=${location}`);
+    return prevProcessGetAPI('device-list', location);
 }
 
 const prevProcessGetAPI = (api, location) => {
     let lc = pinyinConverter(location);
-    if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-        lc = 'zhongguo';
-    }
+
     const url = `${baseUrl}/${api}?location=${lc}`;
     return get(url)
         .catch( () => {

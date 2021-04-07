@@ -13,7 +13,6 @@ import organ10 from '../assets/organ10.png';
 import organ11 from '../assets/organ11.png';
 import organ12 from '../assets/organ12.png';
 import  { getSampleNumb, getOrganDataSource } from  '../backend/api';
-import { pinyinConverter } from '../component/pingyinConverter';
 import {LineChart} from '../component/chart/index';
 
 const organList = ['heart', 'lung', 'brain', 'liver', 'gallbladder', 'breast',
@@ -148,22 +147,13 @@ const leftPage = (props) => {
     const [ sample, setSample ] = useState(0);
     const [ organDataSource, setOrganDataSource ] = useState({});
     const loadSample = (location) => {
-        let lc = pinyinConverter(location);
-        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-            lc = 'zhongguo';
-        }
-        getSampleNumb(lc)
+        getSampleNumb(location)
             .then(res => {
                 setSample(res.total);
             })
     };
     const loadOrganData = (location) => {
-
-        let lc = pinyinConverter(location);
-        if (lc !== 'zhongguo' && lc !== 'zhejiangsheng' && lc !== 'hangzhoushi') {
-            lc = 'zhongguo1';
-        }
-        getOrganDataSource(lc)
+        getOrganDataSource(location)
             .then(res => {
                 setOrganDataSource(res);
             })
@@ -225,10 +215,10 @@ const leftPage = (props) => {
                     <LineChart optionsData={organData}/>
                 </div>
                 <div className="table-note">
-                    { selectedOrgan &&  Object.keys(selectedOrgan).map((item)=> {
+                    { selectedOrgan &&  Object.keys(selectedOrgan).map((item, idx)=> {
                         if (selectedOrgan[item]) {
                             return (
-                                <div className="table-note-item">
+                                <div className="table-note-item" key={idx}>
                                     <div className="table-note-icon" style={{backgroundColor: chartDataSource[item].color}}/>
                                     <p>{organConverter[item]}</p>
                                 </div>
