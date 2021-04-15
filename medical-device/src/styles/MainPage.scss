@@ -117,15 +117,16 @@
     bottom: 80px;
     right: 30px;
     width: 300px;
-    height: 200px;
+    height: 250px;
     background: url("../assets/wireframe_current_location.png") no-repeat center;
-    background-size: 300px;
+    background-size: 300px 200px;
   }
   .block-box-title {
     color: #007ffc;
     position: absolute;
-    right: 115px;
-    top: 23px;
+    right: 108px;
+    top: 28px;
+    font-size: 20px;
   }
   .block-box-wrapper {
     display: flex;
@@ -133,7 +134,7 @@
     flex-wrap: wrap;
     color: #22cea6;
     position: absolute;
-    top: 65px;
+    top: 80px;
     left: 30px;
     p {
       width: 60px;

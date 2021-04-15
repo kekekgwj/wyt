@@ -4,6 +4,8 @@ import LinesMap from "../component/mapLines/index";
 import  {Timer} from "../component/timer"
 import "../styles/MainPage.css";
 import  { getCityRank } from '../backend/api';
+import {color} from "echarts/src/export";
+import {red} from "@ant-design/colors";
 const mainPage = (props) => {
     const [ cityRankData, setCityRankData ] = useState([]);
     const { location, setLocation } = props;
@@ -11,7 +13,8 @@ const mainPage = (props) => {
     useEffect(() => {
         loadData();
     }, [location]);
-    const ifShowBlockSet = new Set(["上城区", "下城区", "江干区", "拱墅区", "西湖区", "滨江区", "萧山区", "余杭区", "富阳区", "临安区", "杭州市"]);
+    const ifShowBlockSet = new Set(["上城区", "下城区", "江干区", "拱墅区",
+        "西湖区", "滨江区", "萧山区", "余杭区", "富阳区", "临安区", "杭州市", "桐庐县", "淳安县", "建德市"]);
     const handleLocation = (location) => {
         let curLocation = '';
         if (!location || location.length === 0) {
@@ -105,6 +108,10 @@ const mainPage = (props) => {
                         <p id="余杭区">余杭区</p>
                         <p id="富阳区">富阳区</p>
                         <p id="临安区">临安区</p>
+                        <p id="桐庐县">桐庐县</p>
+                        <p id="淳安县">淳安县</p>
+                        <p id="建德市">建德市</p>
+                        <p id="杭州市" style={{color:'#fec33d'}}>返回</p>
                     </div>
                 </div> }
             </div>
